@@ -1,0 +1,74 @@
+{
+  "ignition": {
+    "version": "3.4.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICswtcs9katJaGzwiWWot7BWx596MjHNjo8K7zxONpXV"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "overwrite": true,
+        "path": "/opt/k8s/volumes",
+        "mode": 511
+      }
+    ],
+    "files": [
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,ada1.lan"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/rancher/k3s/config.yaml.d/00_common.yaml",
+        "contents": {
+          "compression": "",
+          "source": "data:,%23%20common%20configs%20used%20by%20both%20agents%20and%20servers%0Anode-name%3A%20%22ada1%22%0Atoken%3A%20L3PF5nMfAZ9dZFbt%0Akubelet-arg%3A%0A%20%20-%20%22--config-dir%3D%2Fetc%2Fkubernetes%2Fkubelet.conf.d%22%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/rancher/k3s/config.yaml.d/10_server_config.yaml",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4yTT4/iOBDF7/kUT/SBbokEEhBN+7bavXBDq5b2bOKCWBg7clWI+PYrh9A9zLRm+uh/z+/3quoJdfAHe2QcQoR2DkzxQhE+GOLsCfpIXm4rcBM6Z2DIkRCksYyDdZRlfbRC+anb000tPwdDCpPFerWaZNkTtrvLar7dXdbwJH2IJ/y9/edfhgR0TMPfbTDY7hjPhg66c6JQLopVVSyKxbxcv2S161go5rU1UWEy/fF0VulFpcr1Rq025lVpo9WqUmq+WUyH79/JOZyWjJ6mziF2HhrnzonNR9xRvcB7oiKv944YJLWZgQOkoTEYRq09TkQtrAdffV18WLPeioLEjr7JnCRtTV9wLz+4xzsP3MvfcC+VmpdllcBT1XLbKkzKt6oo15uiqoqy/OKVKsshqP8aLdju7pVO2ElkyqlNJAaXt057uhtnaO9D52tKVEGae+OMmV2HsOpwPnfe1loo0+ZCUSxTro2JxPyzuUmWpdRzZ1nI5y1RzLvo0r1GpGU1nz/cV9Vys5g8vKmdJS9/evX6Nvs4ql5ToMVtexT7dPpdvSHBv4y5TcbIl4KpKQqnohvsrxjGRBwycZyz9goTbXRZOO0HhdSn3NiW7ym7/Qz7TtATeu0lKVrPkoZVe7g9QheZ3IUYz2dK+/uXBx2NsbcgUdPBnmD9MZn7RTc15lB06iniqIV6fYVubWYsp5lQGZB/GhtWo2j2fwAAAP//1vMteEwEAAA="
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/kubernetes/kubelet.conf.d/001-kubelet.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,apiVersion%3A%20kubelet.config.k8s.io%2Fv1beta1%0Akind%3A%20KubeletConfiguration%0AshutdownGracePeriod%3A%20%2245s%22%0AshutdownGracePeriodCriticalPods%3A%20%2215s%22%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/systemd/system/rpm-ostree-install-nfs.service",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3SRP2/jMAzFd30K33Cj4uFmDZc2Q4GiKJoWHYIMsszERGRSIOkk7qcvnCBN0T8j35OefnpcvRDa2t2CJsFiyBTu4whS0Ub9YJi1OqB1lZTes5oAuNdIpoHADiw7z5SRYGZRtmDu/8ZAfvHmsGGB8IaUouFMQfaY4CLv/ukPko9bIPswbphanCAfo3WLI6pp+FPvo9QZm/rvw0wt9sW51fJ8Ye2exwKBCbRjc0/QR6QT4+KIFkZQtzhCWloUC/WgUjdI9fWvFZJazLnyPpaSR59xD9OQMx88Ukw2CdeuVLX104htH8vn8CnYeEhd9Z33yzEd1aBPNj1L7JvMaVcJNMzm3OrujLQ+7QHa+Rj6IRv6QUEuVb8HAAD//1igeuHWAQAA"
+        },
+        "mode": 420
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": true,
+        "name": "rpm-ostree-install-nfs.service"
+      }
+    ]
+  }
+}
