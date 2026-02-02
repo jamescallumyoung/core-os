@@ -1,0 +1,82 @@
+{
+  "ignition": {
+    "version": "3.4.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICswtcs9katJaGzwiWWot7BWx596MjHNjo8K7zxONpXV"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "overwrite": true,
+        "path": "/opt/k8s/volumes",
+        "mode": 511
+      }
+    ],
+    "files": [
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,ada0.lan"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/NetworkManager/system-connections/enp1s0-static-ipv6.nmconnection",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1SNQWrEMAxF97qLqR1COhh0kmEWqq10BLFsbHXAty9p00V3H/7jvXuqqpxMqj5AMrK2MLwbRibJSXttYLMxsj25KxuIGvedEjulwhcP9GX1MrnWpXaxicED3E/FAwrbs2Y8MaCcO48RcCG/xLDd4nrL79HHGPzbtv787pPVlZoZh9HHwaf0RWmCtO1v4wKFpttJDtzpGPxbW//XvgMAAP//7wNIguEAAAA="
+        },
+        "mode": 384
+      },
+      {
+        "path": "/etc/rancher/k3s/config.yaml.d/00_common.yaml",
+        "contents": {
+          "compression": "",
+          "source": "data:,%23%20common%20configs%20used%20by%20both%20agents%20and%20servers%0Anode-name%3A%20%22ada0%22%0Atoken%3A%20L3PF5nMfAZ9dZFbt%0Akubelet-arg%3A%0A%20%20-%20%22--config-dir%3D%2Fetc%2Fkubernetes%2Fkubelet.conf.d%22%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/rancher/k3s/config.yaml.d/10_server_config.yaml",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4yTz27bMAzG73oKwj20BWLHdgI31W3YLrkFQ4GdZYuJhSiSIVIx8vaDHKf/tmE9SiJ/4veRvIPOu705EOx9AGUtEIYzBnBeI4k7UAd0fD0B9T5aDRotMgL3hmBvLAoxBsOYH2OLV1p+8holZGWzXmdC3MF2d14vt7tzAw559OEI37c/fhKwh0g4/T14DdsdwYPGvYqWJVRlsa6LsiiXVfMoOhuJMeSd0UFC9v5xUauyllWzkeuNfpJKr2spl8316xe0Fo4rghHvrYUQHSg4Rcsmn6XO5AJekiJ0qrVIgNzpBZAH7nE2haBTDo6IAxgHdHFd8VqWcYYlcIj4Rb0JaTr8i+bVq+Y55r3m1T81r6RcVlWdCZG6lZshZTzXRdVsirouqvJTSillVU4W/eoVw3Z3628SnBD3lIaDg7f5YJXDW8kEyjkfXYdJj+f+Ni6zW5fJps6fTtGZTjEKpc8Y2BDmSuuARJ9Ly4RIfufWEKPLB8SQx2BTXM88kFwuP8TLerUpsw85nTXo+H9ZT8+L16f6KXlZVNP1DHur9Ku8ycFvWl/3YdaXjOkwMKV2a2gvMC0HWxBsKSflJGRKq7Kwyk2ENKHUm4FuLtt2AW1kGBFG5TgRjSNOK6oc2BZ8DIT2jAQPJ0z37eMHjoJ5qoCDwr05gnGHVNwf3DSSU9NxxAAHxTiqC6jBCG0obYMUAPlbYdNphorfAQAA//+FA9BKQgQAAA=="
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/kubernetes/kubelet.conf.d/001-kubelet.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,apiVersion%3A%20kubelet.config.k8s.io%2Fv1beta1%0Akind%3A%20KubeletConfiguration%0AshutdownGracePeriod%3A%20%2245s%22%0AshutdownGracePeriodCriticalPods%3A%20%2215s%22%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/systemd/system/install-k3s.service",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3SQwWrCQBCG7/sU21w8xRy8FfagNgdRipiUFkRkXUczuM7KzKTV0ocvsbVQaG/L/y8z33zLJ0JdmQeQwHhSTOQmJOpjtIeBmHGiLXbp3GtTnlFU3F3RChcxBR+LDVLR/Xv2pOII9C3xIU8UkaCvnvegZrhT4H+6EewSg3tHCl6xL8CvGOAWHwbyR5T7PZD+FGZZfb1Wpr6cwCUCaZKaBRw90nV5eUZ1FxBTniFU6lnd9YaOfuOlsXmwvdBytLnsZrZRPcl9UexB+x0CJvthJ49VPZzN1tNBta6mk/m6qoeL2mXKLWS/2vKlHLuswwPObDe9Z8zy2+rqqgq2o4s7tlExbwX4ZuMzAAD//x0DtgaNAQAA"
+        },
+        "mode": 420
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": true,
+        "name": "install-k3s.service"
+      }
+    ]
+  }
+}
